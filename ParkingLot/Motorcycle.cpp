@@ -2,9 +2,10 @@
 #include "Motorcycle.h"
 
 
-Motorcycle::Motorcycle() {
-}
 
+VehicleSize Motorcycle::getSize() const {
+	return size;
+}
 
 Motorcycle::~Motorcycle() {
 }

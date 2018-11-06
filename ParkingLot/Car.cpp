@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "Car.h"
 
+int Car::numOfVehicles = 0;
 
-VehicleSize Car::getSize() {
+VehicleSize Car::getSize() const {
 	return size;
 }
 

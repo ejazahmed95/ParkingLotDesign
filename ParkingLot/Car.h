@@ -1,11 +1,15 @@
 #pragma once
 
+using namespace std;
+
 class Car : public Vehicle {
 private:
-	VehicleSize size = VehicleSize::car;
+	const VehicleSize size = VehicleSize::car;
+	static int numOfVehicles;
 public:
-	Car(std::string numberPlate) : Vehicle(numberPlate) {};
-	virtual VehicleSize getSize();
+	Car() : Vehicle("C" + to_string(numOfVehicles)) { ++numOfVehicles; };
+	Car(string numberPlate) : Vehicle(numberPlate) { ++numOfVehicles; };
+	virtual VehicleSize getSize() const;
 	virtual ~Car();
 };
 

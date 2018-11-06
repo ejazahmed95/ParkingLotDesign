@@ -2,9 +2,9 @@
 #include "Bus.h"
 
 
-Bus::Bus() {
+VehicleSize Bus::getSize() const {
+	return size;
 }
-
 
 Bus::~Bus() {
 }

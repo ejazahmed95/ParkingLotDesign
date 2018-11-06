@@ -22,6 +22,32 @@ ParkingLot::~ParkingLot() {
 	}
 }
 
+void ParkingLot::parkVehicle(Vehicle &vehicle) {
+	ParkingSpot *spot = nullptr;
+	auto it = parkingSpots.begin();
+	while (it != parkingSpots.end()) {
+		if (!it->second->isOccupied) {
+			spot = it->second;
+			if(canFitVehicle(spot->getSize(), vehicle.getSize()))
+				break;
+		}
+		it++;
+	}
+	if (it == parkingSpots.end()) {
+		throw "Parking space not available";
+	} else {
+		spot->parkVehicle(&vehicle);
+	}
+}
+
+void ParkingLot::unparkVehicle(Vehicle & vehicle) {
+
+}
+
+bool ParkingLot::canFitVehicle(SpotSize spotSize, VehicleSize vehicleSize) {
+	return vehicleSize <= spotSize;
+}
+
 string ParkingLot::generateID(int level, int row, int position) {
 	string result = "";
 	result += (level >= 10) ? to_string(level) : '0' + to_string(level);
@@ -29,6 +55,11 @@ string ParkingLot::generateID(int level, int row, int position) {
 	result += (position >= 10) ? to_string(position) : '0' + to_string(position);
 	return result;
 }
+//
+//ParkingSpot &ParkingLot::findParkingSpot(Vehicle &vehicle) {
+//	// TODO: insert return statement here
+//	return ParkingSpot();
+//}
 
 void ParkingLot::printParkingSpots() {
 	auto it = parkingSpots.begin();
