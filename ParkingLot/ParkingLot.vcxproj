@@ -147,16 +147,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Bus.h" />
+    <ClInclude Include="Car.h" />
     <ClInclude Include="Motorcycle.h" />
-    <ClInclude Include="ParkingSlot.h" />
+    <ClInclude Include="ParkingLotManager.h" />
+    <ClInclude Include="ParkingSpot.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Vehicle.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bus.cpp" />
+    <ClCompile Include="Car.cpp" />
     <ClCompile Include="Motorcycle.cpp" />
     <ClCompile Include="ParkingLot.cpp" />
-    <ClCompile Include="ParkingSlot.cpp" />
+    <ClCompile Include="ParkingLotManager.cpp" />
+    <ClCompile Include="ParkingSpot.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -164,6 +170,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Vehicle.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="parkingSpots.in" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

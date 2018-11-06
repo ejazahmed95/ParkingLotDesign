@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "Vehicle.h"
 
-
-Vehicle::Vehicle() {
+std::string Vehicle::getNumberPlate() {
+	return numberPlate;
 }
 
-
 Vehicle::~Vehicle() {
+
 }

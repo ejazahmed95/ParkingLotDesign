@@ -21,13 +21,22 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ParkingSlot.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Vehicle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Motorcycle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Car.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ParkingSpot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ParkingLotManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,14 +47,28 @@
     <ClCompile Include="ParkingLot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ParkingSlot.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Vehicle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Motorcycle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Car.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParkingSpot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParkingLotManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="parkingSpots.in">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
