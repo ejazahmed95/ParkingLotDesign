@@ -22,6 +22,7 @@ public:
 	SpotSize getSize() const;
 	string getSizeName() const;
 	Vehicle* getVehicleReference() const;
+	string getID() const;
 	void parkVehicle(Vehicle* vehicle);
 	void unparkVehicle();
 	virtual ~ParkingSpot() {};

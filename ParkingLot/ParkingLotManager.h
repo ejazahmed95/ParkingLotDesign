@@ -14,6 +14,7 @@ public:
 	ParkingLot(vector< vector< pair<int, SpotSize>>> parkingSpots);
 	~ParkingLot();
 	void parkVehicle(Vehicle &vehicle);
+	vector<string> getAdjacentSpots(string id, int count);
 	void unparkVehicle(Vehicle &vehicle);
 	bool canFitVehicle(SpotSize spotSize, VehicleSize vehicleSize);
 	void printParkingSpots();

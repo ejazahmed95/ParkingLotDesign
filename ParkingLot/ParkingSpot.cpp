@@ -25,6 +25,10 @@ Vehicle* ParkingSpot::getVehicleReference() const {
 	return vehicle;
 }
 
+string ParkingSpot::getID() const {
+	return id;
+}
+
 void ParkingSpot::parkVehicle(Vehicle * vehicle) {
 	this->vehicle = vehicle;
 	this->isOccupied = true;
