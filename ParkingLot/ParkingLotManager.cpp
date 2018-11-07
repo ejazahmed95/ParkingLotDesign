@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "ParkingLotManager.h"
 
+using namespace std;
+
 ParkingLot::ParkingLot(vector<vector<pair<int, SpotSize>>> parkingSpots) {
 	ParkingSpot* spot;
 	string id;
@@ -37,11 +39,14 @@ void ParkingLot::parkVehicle(Vehicle &vehicle) {
 		throw "Parking space not available";
 	} else {
 		spot->parkVehicle(&vehicle);
+		parkedVehicles[vehicle.getNumberPlate()] = spot;
 	}
 }
 
 void ParkingLot::unparkVehicle(Vehicle & vehicle) {
-
+	auto it = parkedVehicles.find(vehicle.getNumberPlate());
+	it->second->unparkVehicle();
+	parkedVehicles.erase(it);
 }
 
 bool ParkingLot::canFitVehicle(SpotSize spotSize, VehicleSize vehicleSize) {

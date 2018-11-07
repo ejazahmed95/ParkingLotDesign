@@ -1,6 +1,7 @@
 #pragma once
 
-using namespace std;
+using std::ostream;
+using std::string;
 
 enum SpotSize { Small = 0, Compact = 1, Large = 2 };
 
