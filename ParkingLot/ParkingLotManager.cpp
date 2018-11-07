@@ -76,6 +76,10 @@ vector<string> ParkingLot::getAdjacentSpots(string id, int count) {
 
 void ParkingLot::unparkVehicle(Vehicle & vehicle) {
 	auto it = parkedVehicles.find(vehicle.getNumberPlate());
+	if (it == parkedVehicles.end()) {
+		throw "The vehicle is not parked anymore.";
+		return;
+	}
 	if (vehicle.getSize() == bus) {
 		vector<string> spots = getAdjacentSpots(it->second->getID(), 4);
 		for (int i = 0; i < spots.size(); ++i) {
@@ -97,11 +101,6 @@ string ParkingLot::generateID(int level, int row, int position) {
 	result += (position >= 10) ? to_string(position) : '0' + to_string(position);
 	return result;
 }
-//
-//ParkingSpot &ParkingLot::findParkingSpot(Vehicle &vehicle) {
-//	// TODO: insert return statement here
-//	return ParkingSpot();
-//}
 
 void ParkingLot::printParkingSpots() {
 	auto it = parkingSpots.begin();
