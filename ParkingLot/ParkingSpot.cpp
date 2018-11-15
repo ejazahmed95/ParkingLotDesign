@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "ParkingSpot.h"
 
+using namespace std;
+
 SpotSize ParkingSpot::getSize() const {
 	return size;
 }
@@ -29,18 +31,20 @@ string ParkingSpot::getID() const {
 	return id;
 }
 
+bool ParkingSpot::isOccupied() const {
+	return vehicle != nullptr;
+}
+
 void ParkingSpot::parkVehicle(Vehicle * vehicle) {
 	this->vehicle = vehicle;
-	this->isOccupied = true;
 }
 
 void ParkingSpot::unparkVehicle() {
-	this->vehicle = NULL;
-	this->isOccupied = false;
+	this->vehicle = nullptr;
 }
 
 ostream &operator<<(ostream &out, const ParkingSpot &spot) {
-	string isOccupied = spot.isOccupied ? spot.vehicle->getNumberPlate() : "Unoccupied";
+	string isOccupied = spot.isOccupied() ? spot.vehicle->getNumberPlate() : "Unoccupied";
 	out << spot.id << " | " << spot.getSizeName() << " | " << isOccupied ; 
 	return out;
 };

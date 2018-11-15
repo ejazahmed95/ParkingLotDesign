@@ -6,7 +6,7 @@ private:
 	static int numOfVehicles;
 public:
 	Bus() : Vehicle("B" + std::to_string(numOfVehicles)) { ++numOfVehicles; };
-	Bus(string numberPlate) : Vehicle(numberPlate) { ++numOfVehicles; };;
+	Bus(std::string numberPlate) : Vehicle(numberPlate) { ++numOfVehicles; };;
 	virtual VehicleSize getSize() const;
 	virtual ~Bus();
 };

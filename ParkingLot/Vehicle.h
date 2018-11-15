@@ -1,6 +1,6 @@
 #pragma once
 
-enum VehicleSize { motorcycle = 0, car = 1, bus = 2 };
+enum class VehicleSize { motorcycle = 0, car = 1, bus = 2 };
 
 class Vehicle {
 private:
@@ -8,7 +8,7 @@ private:
 public:
 	Vehicle() : numberPlate("0000") {};
 	Vehicle(std::string numberPlate) : numberPlate(numberPlate) {};
-	std::string getNumberPlate();
+	std::string getNumberPlate() const;
 	virtual VehicleSize getSize() const = NULL;
 	virtual ~Vehicle();
 };

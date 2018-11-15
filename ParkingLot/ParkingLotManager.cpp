@@ -30,14 +30,14 @@ void ParkingLot::parkVehicle(Vehicle &vehicle) {
 	vector<string> adjacentSpots;
 	while (it != parkingSpots.end()) {
 		spot = it->second;
-		if (!spot->isOccupied && canFitVehicle(spot->getSize(), vehicle.getSize())) {
+		if (!spot->isOccupied() && canFitVehicle(spot->getSize(), vehicle.getSize())) {
 
 			// If the vehicle is bus, find if the adjacent parking spaces are free and allot accordingly
-			if (vehicle.getSize() == bus) {
+			if (vehicle.getSize() == VehicleSize::bus) {
 				adjacentSpots = getAdjacentSpots(spot->getID(), 4);
 				auto spot_it = adjacentSpots.begin();
 				for (; spot_it != adjacentSpots.end(); spot_it++) {
-					if (parkingSpots.find(*spot_it) == parkingSpots.end() || parkingSpots[*spot_it]->isOccupied) {
+					if (parkingSpots.find(*spot_it) == parkingSpots.end() || parkingSpots[*spot_it]->isOccupied()) {
 						break;
 					}
 				}
@@ -80,7 +80,7 @@ void ParkingLot::unparkVehicle(Vehicle & vehicle) {
 		throw "The vehicle is not parked anymore.";
 		return;
 	}
-	if (vehicle.getSize() == bus) {
+	if (vehicle.getSize() == VehicleSize::bus) {
 		vector<string> spots = getAdjacentSpots(it->second->getID(), 4);
 		for (int i = 0; i < spots.size(); ++i) {
 			parkingSpots[spots[i]]->unparkVehicle();
@@ -91,7 +91,7 @@ void ParkingLot::unparkVehicle(Vehicle & vehicle) {
 }
 
 bool ParkingLot::canFitVehicle(SpotSize spotSize, VehicleSize vehicleSize) {
-	return vehicleSize <= spotSize;
+	return static_cast<int>(vehicleSize) <= static_cast<int>(spotSize);
 }
 
 string ParkingLot::generateID(int level, int row, int position) {
